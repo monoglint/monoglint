@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/jghig/projects/c/monoglint/out/debug/cmake_install.cmake",
+		"C:/Users/jghig/projects/c/monoglint/out/debug/external/glfw/cmake_install.cmake",
+		"C:/Users/jghig/projects/c/monoglint/out/debug/external/glfw/src/cmake_install.cmake",
+		"C:/Users/jghig/projects/c/monoglint/out/debug/external/glfw/docs/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
