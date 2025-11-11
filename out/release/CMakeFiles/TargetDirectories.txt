@@ -1,4 +1,5 @@
 C:/Users/jghig/projects/c/monoglint/out/release/CMakeFiles/glad.dir
+C:/Users/jghig/projects/c/monoglint/out/release/CMakeFiles/monoglint_engine.dir
 C:/Users/jghig/projects/c/monoglint/out/release/CMakeFiles/monoglint.dir
 C:/Users/jghig/projects/c/monoglint/out/release/CMakeFiles/edit_cache.dir
 C:/Users/jghig/projects/c/monoglint/out/release/CMakeFiles/rebuild_cache.dir

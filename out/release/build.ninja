@@ -75,18 +75,60 @@ build libglad.a: C_STATIC_LIBRARY_LINKER__glad_Release CMakeFiles/glad.dir/exter
   TARGET_PDB = glad.a.dbg
 
 # =============================================================================
+# Object build statements for STATIC_LIBRARY target monoglint_engine
+
+
+#############################################
+# Order-only phony target for monoglint_engine
+
+build cmake_object_order_depends_target_monoglint_engine: phony || .
+
+build CMakeFiles/monoglint_engine.dir/monoglint_engine/math/math.cc.obj: CXX_COMPILER__monoglint_engine_unscanned_Release C$:/Users/jghig/projects/c/monoglint/monoglint_engine/math/math.cc || cmake_object_order_depends_target_monoglint_engine
+  CONFIG = Release
+  DEP_FILE = CMakeFiles\monoglint_engine.dir\monoglint_engine\math\math.cc.obj.d
+  FLAGS = -O2 -static-libgcc -static-libstdc++ -std=c++17
+  INCLUDES = -IC:/Users/jghig/projects/c/monoglint/monoglint_engine -IC:/Users/jghig/projects/c/monoglint/external -IC:/Users/jghig/projects/c/monoglint/external/glfw/include
+  OBJECT_DIR = CMakeFiles\monoglint_engine.dir
+  OBJECT_FILE_DIR = CMakeFiles\monoglint_engine.dir\monoglint_engine\math
+
+build CMakeFiles/monoglint_engine.dir/monoglint_engine/win/win.cc.obj: CXX_COMPILER__monoglint_engine_unscanned_Release C$:/Users/jghig/projects/c/monoglint/monoglint_engine/win/win.cc || cmake_object_order_depends_target_monoglint_engine
+  CONFIG = Release
+  DEP_FILE = CMakeFiles\monoglint_engine.dir\monoglint_engine\win\win.cc.obj.d
+  FLAGS = -O2 -static-libgcc -static-libstdc++ -std=c++17
+  INCLUDES = -IC:/Users/jghig/projects/c/monoglint/monoglint_engine -IC:/Users/jghig/projects/c/monoglint/external -IC:/Users/jghig/projects/c/monoglint/external/glfw/include
+  OBJECT_DIR = CMakeFiles\monoglint_engine.dir
+  OBJECT_FILE_DIR = CMakeFiles\monoglint_engine.dir\monoglint_engine\win
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target monoglint_engine
+
+
+#############################################
+# Link the static library libmonoglint_engine.a
+
+build libmonoglint_engine.a: CXX_STATIC_LIBRARY_LINKER__monoglint_engine_Release CMakeFiles/monoglint_engine.dir/monoglint_engine/math/math.cc.obj CMakeFiles/monoglint_engine.dir/monoglint_engine/win/win.cc.obj
+  CONFIG = Release
+  LANGUAGE_COMPILE_FLAGS = -O2 -static-libgcc -static-libstdc++
+  OBJECT_DIR = CMakeFiles\monoglint_engine.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = libmonoglint_engine.a
+  TARGET_PDB = monoglint_engine.a.dbg
+
+# =============================================================================
 # Object build statements for EXECUTABLE target monoglint
 
 
 #############################################
 # Order-only phony target for monoglint
 
-build cmake_object_order_depends_target_monoglint: phony || cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw
+build cmake_object_order_depends_target_monoglint: phony || cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw cmake_object_order_depends_target_monoglint_engine
 
 build CMakeFiles/monoglint.dir/resources/resources.rc.obj: RC_COMPILER__monoglint_unscanned_Release C$:/Users/jghig/projects/c/monoglint/resources/resources.rc || cmake_object_order_depends_target_monoglint
   CONFIG = Release
   DEP_FILE = CMakeFiles\monoglint.dir\resources\resources.rc.obj.d
-  INCLUDES = -I C:/Users/jghig/projects/c/monoglint/include -I C:/Users/jghig/projects/c/monoglint/external -I C:/Users/jghig/projects/c/monoglint/external/glfw/include -I C:/Users/jghig/projects/c/monoglint/external/glad
+  INCLUDES = -I C:/Users/jghig/projects/c/monoglint/external -I C:/Users/jghig/projects/c/monoglint/external/glfw/include -I C:/Users/jghig/projects/c/monoglint/external/glad -I C:/Users/jghig/projects/c/monoglint/monoglint_engine
   OBJECT_DIR = CMakeFiles\monoglint.dir
   OBJECT_FILE_DIR = CMakeFiles\monoglint.dir\resources
 
@@ -94,7 +136,7 @@ build CMakeFiles/monoglint.dir/src/main.cc.obj: CXX_COMPILER__monoglint_unscanne
   CONFIG = Release
   DEP_FILE = CMakeFiles\monoglint.dir\src\main.cc.obj.d
   FLAGS = -O2 -static-libgcc -static-libstdc++ -std=c++17
-  INCLUDES = -IC:/Users/jghig/projects/c/monoglint/include -IC:/Users/jghig/projects/c/monoglint/external -IC:/Users/jghig/projects/c/monoglint/external/glfw/include -IC:/Users/jghig/projects/c/monoglint/external/glad
+  INCLUDES = -IC:/Users/jghig/projects/c/monoglint/external -IC:/Users/jghig/projects/c/monoglint/external/glfw/include -IC:/Users/jghig/projects/c/monoglint/external/glad -IC:/Users/jghig/projects/c/monoglint/monoglint_engine
   OBJECT_DIR = CMakeFiles\monoglint.dir
   OBJECT_FILE_DIR = CMakeFiles\monoglint.dir\src
 
@@ -106,11 +148,11 @@ build CMakeFiles/monoglint.dir/src/main.cc.obj: CXX_COMPILER__monoglint_unscanne
 #############################################
 # Link the executable monoglint.exe
 
-build monoglint.exe: CXX_EXECUTABLE_LINKER__monoglint_Release CMakeFiles/monoglint.dir/resources/resources.rc.obj CMakeFiles/monoglint.dir/src/main.cc.obj | external/glfw/src/libglfw3.a libglad.a || external/glfw/src/libglfw3.a libglad.a
+build monoglint.exe: CXX_EXECUTABLE_LINKER__monoglint_Release CMakeFiles/monoglint.dir/resources/resources.rc.obj CMakeFiles/monoglint.dir/src/main.cc.obj | external/glfw/src/libglfw3.a libglad.a libmonoglint_engine.a || external/glfw/src/libglfw3.a libglad.a libmonoglint_engine.a
   CONFIG = Release
   FLAGS = -O2 -static-libgcc -static-libstdc++
   LINK_FLAGS = -static -static-libgcc -static-libstdc++
-  LINK_LIBRARIES = external/glfw/src/libglfw3.a  libglad.a  -lopengl32  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = external/glfw/src/libglfw3.a  libglad.a  libmonoglint_engine.a  -lopengl32  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\monoglint.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -650,6 +692,8 @@ build libglfw3.a: phony external/glfw/src/libglfw3.a
 
 build monoglint: phony monoglint.exe
 
+build monoglint_engine: phony libmonoglint_engine.a
+
 build uninstall: phony external/glfw/uninstall
 
 build update_mappings: phony external/glfw/src/update_mappings
@@ -662,7 +706,7 @@ build update_mappings: phony external/glfw/src/update_mappings
 #############################################
 # Folder: C:/Users/jghig/projects/c/monoglint/out/release
 
-build all: phony libglad.a monoglint.exe external/glfw/all
+build all: phony libglad.a libmonoglint_engine.a monoglint.exe external/glfw/all
 
 # =============================================================================
 
