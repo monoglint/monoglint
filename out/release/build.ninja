@@ -41,18 +41,52 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = C$:/Users/jghig/projects/c/monoglint/out/release/
 # =============================================================================
+# Object build statements for STATIC_LIBRARY target glad
+
+
+#############################################
+# Order-only phony target for glad
+
+build cmake_object_order_depends_target_glad: phony || .
+
+build CMakeFiles/glad.dir/external/glad/glad.c.obj: C_COMPILER__glad_unscanned_Release C$:/Users/jghig/projects/c/monoglint/external/glad/glad.c || cmake_object_order_depends_target_glad
+  CONFIG = Release
+  DEP_FILE = CMakeFiles\glad.dir\external\glad\glad.c.obj.d
+  FLAGS = -O3 -DNDEBUG
+  INCLUDES = -IC:/Users/jghig/projects/c/monoglint/external/glad
+  OBJECT_DIR = CMakeFiles\glad.dir
+  OBJECT_FILE_DIR = CMakeFiles\glad.dir\external\glad
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target glad
+
+
+#############################################
+# Link the static library libglad.a
+
+build libglad.a: C_STATIC_LIBRARY_LINKER__glad_Release CMakeFiles/glad.dir/external/glad/glad.c.obj
+  CONFIG = Release
+  LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
+  OBJECT_DIR = CMakeFiles\glad.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = libglad.a
+  TARGET_PDB = glad.a.dbg
+
+# =============================================================================
 # Object build statements for EXECUTABLE target monoglint
 
 
 #############################################
 # Order-only phony target for monoglint
 
-build cmake_object_order_depends_target_monoglint: phony || cmake_object_order_depends_target_glfw
+build cmake_object_order_depends_target_monoglint: phony || cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw
 
 build CMakeFiles/monoglint.dir/resources/resources.rc.obj: RC_COMPILER__monoglint_unscanned_Release C$:/Users/jghig/projects/c/monoglint/resources/resources.rc || cmake_object_order_depends_target_monoglint
   CONFIG = Release
   DEP_FILE = CMakeFiles\monoglint.dir\resources\resources.rc.obj.d
-  INCLUDES = -I C:/Users/jghig/projects/c/monoglint/include -I C:/Users/jghig/projects/c/monoglint/external -I C:/Users/jghig/projects/c/monoglint/external/glfw/include
+  INCLUDES = -I C:/Users/jghig/projects/c/monoglint/include -I C:/Users/jghig/projects/c/monoglint/external -I C:/Users/jghig/projects/c/monoglint/external/glfw/include -I C:/Users/jghig/projects/c/monoglint/external/glad
   OBJECT_DIR = CMakeFiles\monoglint.dir
   OBJECT_FILE_DIR = CMakeFiles\monoglint.dir\resources
 
@@ -60,7 +94,7 @@ build CMakeFiles/monoglint.dir/src/main.cc.obj: CXX_COMPILER__monoglint_unscanne
   CONFIG = Release
   DEP_FILE = CMakeFiles\monoglint.dir\src\main.cc.obj.d
   FLAGS = -O2 -static-libgcc -static-libstdc++ -std=c++17
-  INCLUDES = -IC:/Users/jghig/projects/c/monoglint/include -IC:/Users/jghig/projects/c/monoglint/external -IC:/Users/jghig/projects/c/monoglint/external/glfw/include
+  INCLUDES = -IC:/Users/jghig/projects/c/monoglint/include -IC:/Users/jghig/projects/c/monoglint/external -IC:/Users/jghig/projects/c/monoglint/external/glfw/include -IC:/Users/jghig/projects/c/monoglint/external/glad
   OBJECT_DIR = CMakeFiles\monoglint.dir
   OBJECT_FILE_DIR = CMakeFiles\monoglint.dir\src
 
@@ -72,11 +106,11 @@ build CMakeFiles/monoglint.dir/src/main.cc.obj: CXX_COMPILER__monoglint_unscanne
 #############################################
 # Link the executable monoglint.exe
 
-build monoglint.exe: CXX_EXECUTABLE_LINKER__monoglint_Release CMakeFiles/monoglint.dir/resources/resources.rc.obj CMakeFiles/monoglint.dir/src/main.cc.obj | external/glfw/src/libglfw3.a || external/glfw/src/libglfw3.a
+build monoglint.exe: CXX_EXECUTABLE_LINKER__monoglint_Release CMakeFiles/monoglint.dir/resources/resources.rc.obj CMakeFiles/monoglint.dir/src/main.cc.obj | external/glfw/src/libglfw3.a libglad.a || external/glfw/src/libglfw3.a libglad.a
   CONFIG = Release
   FLAGS = -O2 -static-libgcc -static-libstdc++
   LINK_FLAGS = -static -static-libgcc -static-libstdc++
-  LINK_LIBRARIES = external/glfw/src/libglfw3.a  -lglad  -lopengl32  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = external/glfw/src/libglfw3.a  libglad.a  -lopengl32  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\monoglint.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -606,78 +640,9 @@ build external/glfw/docs/CMakeFiles/install/strip.util: CUSTOM_COMMAND external/
 build external/glfw/docs/install/strip: phony external/glfw/docs/CMakeFiles/install/strip.util
 
 # =============================================================================
-# Write statements declared in CMakeLists.txt:
-# C:/Users/jghig/projects/c/monoglint/CMakeLists.txt
-# =============================================================================
-
-
-#############################################
-# Utility command for edit_cache
-
-build external/glad/cmake/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\jghig\projects\c\monoglint\out\release\external\glad\cmake && "C:\Program Files\CMake\bin\cmake-gui.exe" -SC:\Users\jghig\projects\c\monoglint -BC:\Users\jghig\projects\c\monoglint\out\release"
-  DESC = Running CMake cache editor...
-  pool = console
-  restat = 1
-
-build external/glad/cmake/edit_cache: phony external/glad/cmake/CMakeFiles/edit_cache.util
-
-
-#############################################
-# Utility command for rebuild_cache
-
-build external/glad/cmake/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\jghig\projects\c\monoglint\out\release\external\glad\cmake && "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\jghig\projects\c\monoglint -BC:\Users\jghig\projects\c\monoglint\out\release"
-  DESC = Running CMake to regenerate build system...
-  pool = console
-  restat = 1
-
-build external/glad/cmake/rebuild_cache: phony external/glad/cmake/CMakeFiles/rebuild_cache.util
-
-
-#############################################
-# Utility command for list_install_components
-
-build external/glad/cmake/list_install_components: phony
-
-
-#############################################
-# Utility command for install
-
-build external/glad/cmake/CMakeFiles/install.util: CUSTOM_COMMAND external/glad/cmake/all
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\jghig\projects\c\monoglint\out\release\external\glad\cmake && "C:\Program Files\CMake\bin\cmake.exe" -P cmake_install.cmake"
-  DESC = Install the project...
-  pool = console
-  restat = 1
-
-build external/glad/cmake/install: phony external/glad/cmake/CMakeFiles/install.util
-
-
-#############################################
-# Utility command for install/local
-
-build external/glad/cmake/CMakeFiles/install/local.util: CUSTOM_COMMAND external/glad/cmake/all
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\jghig\projects\c\monoglint\out\release\external\glad\cmake && "C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
-  DESC = Installing only the local directory...
-  pool = console
-  restat = 1
-
-build external/glad/cmake/install/local: phony external/glad/cmake/CMakeFiles/install/local.util
-
-
-#############################################
-# Utility command for install/strip
-
-build external/glad/cmake/CMakeFiles/install/strip.util: CUSTOM_COMMAND external/glad/cmake/all
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\jghig\projects\c\monoglint\out\release\external\glad\cmake && "C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
-  DESC = Installing the project stripped...
-  pool = console
-  restat = 1
-
-build external/glad/cmake/install/strip: phony external/glad/cmake/CMakeFiles/install/strip.util
-
-# =============================================================================
 # Target aliases.
+
+build glad: phony libglad.a
 
 build glfw: phony external/glfw/src/libglfw3.a
 
@@ -697,14 +662,7 @@ build update_mappings: phony external/glfw/src/update_mappings
 #############################################
 # Folder: C:/Users/jghig/projects/c/monoglint/out/release
 
-build all: phony monoglint.exe external/glfw/all external/glad/cmake/all
-
-# =============================================================================
-
-#############################################
-# Folder: C:/Users/jghig/projects/c/monoglint/out/release/external/glad/cmake
-
-build external/glad/cmake/all: phony
+build all: phony libglad.a monoglint.exe external/glfw/all
 
 # =============================================================================
 
@@ -734,14 +692,14 @@ build external/glfw/src/all: phony external/glfw/src/libglfw3.a
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja C$:/Users/jghig/projects/c/monoglint/out/release/cmake_install.cmake C$:/Users/jghig/projects/c/monoglint/out/release/external/glfw/cmake_install.cmake C$:/Users/jghig/projects/c/monoglint/out/release/external/glfw/src/cmake_install.cmake C$:/Users/jghig/projects/c/monoglint/out/release/external/glfw/docs/cmake_install.cmake C$:/Users/jghig/projects/c/monoglint/out/release/external/glad/cmake/cmake_install.cmake: RERUN_CMAKE | C$:/Program$ Files/CMake/share/cmake-4.1/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDependentOption.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckLibraryExists.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindDoxygen.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindOpenGL.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/GNUInstallDirs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/jghig/projects/c/monoglint/CMakeLists.txt C$:/Users/jghig/projects/c/monoglint/external/glad/cmake/CMakeLists.txt C$:/Users/jghig/projects/c/monoglint/external/glad/cmake/GladConfig.cmake C$:/Users/jghig/projects/c/monoglint/external/glfw/CMakeLists.txt C$:/Users/jghig/projects/c/monoglint/external/glfw/CMake/cmake_uninstall.cmake.in C$:/Users/jghig/projects/c/monoglint/external/glfw/CMake/glfw3.pc.in C$:/Users/jghig/projects/c/monoglint/external/glfw/CMake/glfw3Config.cmake.in C$:/Users/jghig/projects/c/monoglint/external/glfw/docs/CMakeLists.txt C$:/Users/jghig/projects/c/monoglint/external/glfw/src/CMakeLists.txt CMakeCache.txt CMakeFiles/4.1.1/CMakeCCompiler.cmake CMakeFiles/4.1.1/CMakeCXXCompiler.cmake CMakeFiles/4.1.1/CMakeRCCompiler.cmake CMakeFiles/4.1.1/CMakeSystem.cmake
+build build.ninja C$:/Users/jghig/projects/c/monoglint/out/release/cmake_install.cmake C$:/Users/jghig/projects/c/monoglint/out/release/external/glfw/cmake_install.cmake C$:/Users/jghig/projects/c/monoglint/out/release/external/glfw/src/cmake_install.cmake C$:/Users/jghig/projects/c/monoglint/out/release/external/glfw/docs/cmake_install.cmake: RERUN_CMAKE | C$:/Program$ Files/CMake/share/cmake-4.1/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDependentOption.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckLibraryExists.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindDoxygen.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindOpenGL.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/GNUInstallDirs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/jghig/projects/c/monoglint/CMakeLists.txt C$:/Users/jghig/projects/c/monoglint/external/glfw/CMakeLists.txt C$:/Users/jghig/projects/c/monoglint/external/glfw/CMake/cmake_uninstall.cmake.in C$:/Users/jghig/projects/c/monoglint/external/glfw/CMake/glfw3.pc.in C$:/Users/jghig/projects/c/monoglint/external/glfw/CMake/glfw3Config.cmake.in C$:/Users/jghig/projects/c/monoglint/external/glfw/docs/CMakeLists.txt C$:/Users/jghig/projects/c/monoglint/external/glfw/src/CMakeLists.txt CMakeCache.txt CMakeFiles/4.1.1/CMakeCCompiler.cmake CMakeFiles/4.1.1/CMakeCXXCompiler.cmake CMakeFiles/4.1.1/CMakeRCCompiler.cmake CMakeFiles/4.1.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Program$ Files/CMake/share/cmake-4.1/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDependentOption.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckLibraryExists.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindDoxygen.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindOpenGL.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/GNUInstallDirs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/jghig/projects/c/monoglint/CMakeLists.txt C$:/Users/jghig/projects/c/monoglint/external/glad/cmake/CMakeLists.txt C$:/Users/jghig/projects/c/monoglint/external/glad/cmake/GladConfig.cmake C$:/Users/jghig/projects/c/monoglint/external/glfw/CMakeLists.txt C$:/Users/jghig/projects/c/monoglint/external/glfw/CMake/cmake_uninstall.cmake.in C$:/Users/jghig/projects/c/monoglint/external/glfw/CMake/glfw3.pc.in C$:/Users/jghig/projects/c/monoglint/external/glfw/CMake/glfw3Config.cmake.in C$:/Users/jghig/projects/c/monoglint/external/glfw/docs/CMakeLists.txt C$:/Users/jghig/projects/c/monoglint/external/glfw/src/CMakeLists.txt CMakeCache.txt CMakeFiles/4.1.1/CMakeCCompiler.cmake CMakeFiles/4.1.1/CMakeCXXCompiler.cmake CMakeFiles/4.1.1/CMakeRCCompiler.cmake CMakeFiles/4.1.1/CMakeSystem.cmake: phony
+build C$:/Program$ Files/CMake/share/cmake-4.1/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDependentOption.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckLibraryExists.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindDoxygen.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindOpenGL.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/GNUInstallDirs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/jghig/projects/c/monoglint/CMakeLists.txt C$:/Users/jghig/projects/c/monoglint/external/glfw/CMakeLists.txt C$:/Users/jghig/projects/c/monoglint/external/glfw/CMake/cmake_uninstall.cmake.in C$:/Users/jghig/projects/c/monoglint/external/glfw/CMake/glfw3.pc.in C$:/Users/jghig/projects/c/monoglint/external/glfw/CMake/glfw3Config.cmake.in C$:/Users/jghig/projects/c/monoglint/external/glfw/docs/CMakeLists.txt C$:/Users/jghig/projects/c/monoglint/external/glfw/src/CMakeLists.txt CMakeCache.txt CMakeFiles/4.1.1/CMakeCCompiler.cmake CMakeFiles/4.1.1/CMakeCXXCompiler.cmake CMakeFiles/4.1.1/CMakeRCCompiler.cmake CMakeFiles/4.1.1/CMakeSystem.cmake: phony
 
 
 #############################################

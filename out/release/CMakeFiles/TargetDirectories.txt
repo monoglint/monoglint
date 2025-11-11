@@ -1,3 +1,4 @@
+C:/Users/jghig/projects/c/monoglint/out/release/CMakeFiles/glad.dir
 C:/Users/jghig/projects/c/monoglint/out/release/CMakeFiles/monoglint.dir
 C:/Users/jghig/projects/c/monoglint/out/release/CMakeFiles/edit_cache.dir
 C:/Users/jghig/projects/c/monoglint/out/release/CMakeFiles/rebuild_cache.dir
@@ -26,9 +27,3 @@ C:/Users/jghig/projects/c/monoglint/out/release/external/glfw/docs/CMakeFiles/li
 C:/Users/jghig/projects/c/monoglint/out/release/external/glfw/docs/CMakeFiles/install.dir
 C:/Users/jghig/projects/c/monoglint/out/release/external/glfw/docs/CMakeFiles/install/local.dir
 C:/Users/jghig/projects/c/monoglint/out/release/external/glfw/docs/CMakeFiles/install/strip.dir
-C:/Users/jghig/projects/c/monoglint/out/release/external/glad/cmake/CMakeFiles/edit_cache.dir
-C:/Users/jghig/projects/c/monoglint/out/release/external/glad/cmake/CMakeFiles/rebuild_cache.dir
-C:/Users/jghig/projects/c/monoglint/out/release/external/glad/cmake/CMakeFiles/list_install_components.dir
-C:/Users/jghig/projects/c/monoglint/out/release/external/glad/cmake/CMakeFiles/install.dir
-C:/Users/jghig/projects/c/monoglint/out/release/external/glad/cmake/CMakeFiles/install/local.dir
-C:/Users/jghig/projects/c/monoglint/out/release/external/glad/cmake/CMakeFiles/install/strip.dir

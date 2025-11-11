@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(monoglint VERSION 0.0.0 LANGUAGES CXX)
+project(monoglint VERSION 0.0.0 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -7,8 +7,8 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_subdirectory(external/glfw)
 
-add_library(glad external/glad/src/glad.c)
-target_include_directories(glad PUBLIC external/glad/include)
+add_library(glad external/glad/glad.c)
+target_include_directories(glad PUBLIC external/glad)
 
 add_executable(monoglint
     resources/resources.rc
